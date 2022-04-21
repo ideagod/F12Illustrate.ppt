@@ -1,40 +1,233 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>F12</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1111</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/moon.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>如何使用浏览器的F12调试页面？</h3>
+				<p style="text-align: center;font-size: 20px;">分享人：烤鹅</p>
+			</section>
+			<section>
+				<p>目录</p>
+				<p>1.背景介绍</p>
+				<p>2.知识剖析</p>
+				<p>3.常见问题</p>
+				<p>4.进阶技巧</p>
+				<p>5.插件介绍</p>
+				<p>6.创新分享</p>
+			</section>
+			<section>
+				<h3>一、背景介绍</h3>
+			</section>
+			<section>
+				<p style="font-size: 30px;">
+					一个程序员按照要求编写一个网页，不可能一次编写就完全达到目的，一般要对自己的的代码修改调试几次后才能到达要求，浏览器的F12开发人员工具就可以很方便的帮助程序员调试自己的代码。
+				</p>
+				<p style="font-size: 30px;">
+					对于普通人来说，也有有一些好用的技巧；
+				</p>
+			</section>
+			<section>
+				<h3>二、知识剖析</h3>
+			</section>
+			<section>
+				<p>F12 开发人员工具是一套按需采用的工具，网站开发人员可以随时在任何网页上使用 F12 工具，从而快速调试 JavaScript、HTML 和级联样式表
+					(CSS)，还可以跟踪并查明网页或网络的性能问题。</p>
+				<p>注：部分电脑打开F12是需要组合键：Fn+F12；例如：Mac，ThinkPad等</p>
+			</section>
+			<!-- 3 -->
+			<section>
+				<h3>三、基础用法</h3>
+			</section>
+			<section>
+				<h3>1、如何更改调试窗口的显示位置</h3>
+				<p>按下F12进入调试，点击右侧省略</p>
+				<img src="../img/1.png">
+			</section>
+			<section>
+				<h3>2、如何选中需要修改的元素，如何进行手机端调试</h3>
+				<img src="../img/2.png">
+			</section>
+			<section>
+				<h3 data-id="code-title">3、前端基础三件套</h3>
+				<div style="font-size: 16px;text-align: left;">
+					<p>网页基本三个层次，即：结构层(HTML)、表示层(CSS)、行为层(Javascript)。</p>
+					<p>
+						<a><b>HTML(超文本标记语言)</b></a>: 是用来描述网页的一种语言。
+					</p>
+					<p><a><b>CSS(层叠样式表)</b></a>:样式定义如何显示 HTML 元素</p>
+					<p><a><b>JavaScript</b></a>:是一种脚本语言，其源代码在发往客户端运行之前不需经过编译，而是将文本格式的字符代码发送给浏览器由浏览器解释运行</p>
+				</div>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|7-12|20|16-27"><script type="text/template">
+						import React, { useState } from 'react';
+
+						function Example() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    <div>
+						      <p>You clicked {count} times</p>
+						      <button onClick={() => setCount(count + 1)}>
+						        Click me
+						      </button>
+						    </div>
+						  );
+						}
+
+						function SecondExample() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    <div  style={{padding:'0px 10px', position: 'fixed'}}>
+						      <p>You clicked {count} times</p>
+						      <button onClick={() => setCount(count + 1)}>
+						        Click me
+						      </button>
+						    </div>
+						  );
+						}
+					</script></code></pre>
+			</section>
+			<!-- 4 -->
+			<section>
+				<h3>四、进阶技巧</h3>
+			</section>
+			<!-- 元素 -->
+			<section>
+				<section>
+					<h3>元素</h3>
+				</section>
+				<section data-background="#dddddd" id="fragments">
+					<h3>在国家公祭日时改变页面颜色</h3>
+					<div class="fragment">
+						<p>
+							<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter">CSS</a>属性filter
+							将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像、背景和边框的渲染。</p>
+						<pre data-id="code-animation"><code class="hljs" data-trim><script type="text/template">
+							<style>
+								.changeColor{
+									filter: grayscale(100%);
+								}
+							</style>
+							</script></code></pre>
+					</div>
+				</section>
+				<!-- markdown used -->
+				<!-- <section data-markdown data-background="#dddddd" id="fragments">
+					<script type="text/template">
+						### 在国家公祭日时改变页面颜色
+						[CSS](https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter)属性 **`filter`**
+						将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像、背景和边框的渲染。
+						```html []
+						<style class="fragment">
+							.changeColor{
+								filter: grayscale(100%);
+							}
+						</style>
+						```
+					</script>
+				</section> -->
+				<!-- end -->
+				<section data-background="../img/bg.png" data-background-repeat="repeat" data-background-size="100px">
+					<h3>文本、资源禁止复制下载</h3>
+					<div
+						style="font-size: 24px;position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<p style="font-size: 18px;color: grey;">如何白嫖</p>
+						<a href="https://www.cnfla.com/zuowen/2029987.html">我要免费复制文本~</a><br>
+						<a href="https://v.qq.com/">腾讯视频去水印观看</a><br>
+						<a href="https://www.breo.com/index/product/detail/id/21.html">breo官网下载想要的视频和图片</a><br>
+						<a href="https://www.starbucks.com.cn/">学习优秀网站的设计</a>
+					</div>
+				</section>
+			</section>
+			<!-- 网络 -->
+			<section>
+				<section>
+					<h3>网络</h3>
+				</section>
+				<section>
+					<h3>查看网络请求<a href="https://www.starbucks.com.cn/" style="position: fixed;font-size: 10px;">测试一下</a>
+					</h3>
+					<ul>
+						<li>cookie</li>
+						<li>账号密码</li>
+						<li>爬虫</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Chrome控制台</h2>
+					<pre data-id="code-animation"><code class="hljs" data-trim ><script type="text/template">
+// 如何使用
+// 基本存储与计算
+// text
+	console.log('%c 你看 ','color:red;font-size:5em;background-color:yellow');
+// 3D Text
+	console.log("%c3D Text"," text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);font-size:5em");
+// Rainbow Text
+	console.log('%cRainbow Text ', 'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );color:transparent;-webkit-background-clip: text;font-size:5em;');
+// Colorful CSS
+	console.log("%cColorful CSS","background: rgba(252,234,187,1);background: -moz-linear-gradient(left, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%,rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);background: -webkit-gradient(left top, right top, color-stop(0%, rgba(252,234,187,1)), color-stop(12%, rgba(175,250,77,1)), color-stop(28%, rgba(0,247,49,1)), color-stop(39%, rgba(0,210,247,1)), color-stop(51%, rgba(0,189,247,1)), color-stop(64%, rgba(133,108,217,1)), color-stop(78%, rgba(177,0,247,1)), color-stop(87%, rgba(247,0,189,1)), color-stop(100%, rgba(245,22,52,1)));background: -webkit-linear-gradient(left, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%, rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);background: -o-linear-gradient(left, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%, rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);background: -ms-linear-gradient(left, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%, rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);background: linear-gradient(to right, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%, rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#f51634', GradientType=1 );font-size:5em");
+// 输出动态图
+	console.log("%c ", "background: url(http://g.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=7408a51e88d4b31cf0699cbfb2e60b49/c9fcc3cec3fdfc03aca05de5d73f8794a5c22696.jpg) no-repeat center;padding-left:640px;padding-bottom: 242px;");
+
+					</script></code></pre>
+				</section>
+			</section>
+			<section data-background-transition="zoom">
+				<h3>五、插件介绍</h3>
+			</section>
+			<section data-background-iframe="https://copilot.github.com/" data-background-interactive>
+				<div
+					style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+					<h2>GitHub Copilot</h2>
+					<p>GitHub Copilot is an AI pair programmer which suggests line completions and entire function
+						bodies as you type. GitHub Copilot is powered by the OpenAI Codex AI system, trained on
+						public
+						Internet text and billions of lines of code.</p>
+					<p style="font-size: 12px;color: grey;">Scene and Language</p>
+				</div>
+			</section>
+			<section>
+				<h3>六、创新分享</h3>
+			</section>
+			<section>
+				<h4>感谢观看</h4>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
 </html>
